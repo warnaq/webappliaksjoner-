@@ -9,7 +9,7 @@ namespace GruppeOppgaveFinal.Models
         protected override void OnConfiguring(DbContextOptionsBuilder options)
 
             // connect to sqlite database
-            => options.UseSqlite(@"Data Source=C:\Users\senai\OneDrive\Skrivebord\GruppeOppgaveFinal\GruppeOppgaveFinal\DB\Ufo2.db");
+            => options.UseSqlite(@"Data Source=Ufo2.db");
 
         
         public DbSet<Observasjoner> observasjoner { get; set; }
