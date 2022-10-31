@@ -1,0 +1,70 @@
+﻿@model GruppeOppgaveFinal.Models.Observasjoner
+@{
+    ViewData["Title"] = "LeggBrukere";
+  ;
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/person.js"></script>
+    <script src= "~/js/register.js"></script>
+    <link rel="stylesheet" href="site.css">
+    <title>Registrer deg</title>
+
+</head>
+
+<body>
+    <header id="header">
+            <div class="logo">
+            <img src=https://cdn.dribbble.com/users/832300/screenshots/12679063/media/337d6f161330e10ad22f2e2e072084c5.jpg height="100px" width="100px" />
+        
+        <nav>
+                <ul class="list"> 
+                <li><a href="\Home\OmOss">Om oss</a></li>
+                <li><a href="\Home\Index">Home</a></li>
+            </ul>
+        </nav>    
+        </div>
+    </header>
+    <p>
+     <h2> Har du observert en UFO? Register dette i norges største observasjons database. </h2>
+    </p>
+
+    <form action="/home/leggbrukere" method="post">
+        <div class="form-group">
+            <label for="fullnavn">Fullnavn</label>
+            <input type="text" class="form-control" placeholder="Skriv inn Fullnavn" asp-for="fullnavn">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" placeholder="Email" asp-for="email">
+        </div>
+        <div class="form-group">
+            <label for="adress">Adress</label>
+            <input type="text" class="form-control" placeholder="Skriv inn Adresset" asp-for="adress">
+        </div>
+        <div class="form-group">
+            <label for="land">Land</label>
+            <input type="text" class="form-control" placeholder="Skriv inn Landet" asp-for="land">
+        </div>
+        <div class="form-group">
+            <label for="dato">Dato</label>
+            <input type="text" class="form-control" placeholder="00/00/0000" asp-for="dato">
+        </div>
+        <div class="mb-3">
+            <label for="Beskrivelse" class="form-label">Beskriv hendelsen</label>
+            <textarea class="form-control" rows="3" asp-for="Beskrivelse"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+       
+</body>
+</html>
+

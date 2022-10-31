@@ -1,0 +1,93 @@
+﻿@model GruppeOppgaveFinal.Models.Observasjoner
+@{
+    ViewData["Title"] = "Home page";
+    List<Observasjoner> model = TempData["model"] as List<Observasjoner>;
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/person.js"></script>
+    <script src="~/js/register.js"></script>
+    <link rel="stylesheet" href="site.css">
+    <title>Registrer deg</title>
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src=https://cdn.dribbble.com/users/832300/screenshots/12679063/media/337d6f161330e10ad22f2e2e072084c5.jpg height="100px" width="100px" />
+
+            <nav>
+                <ul class="list">
+                    <li><a href="\Home\OmOss">Om oss</a></li>
+                    <li><a href="\Home\LeggBrukere">Legg Observasjon</a></li>
+                    <li><a href="\Home\OpdaterObservasjon">Opdater Observasjon</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1>UFO Observasjon</h1>
+    <p>
+        <h2> Har du observert en UFO? Register dette i norges største observasjons database. </h2>
+    </p>
+
+   <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th>Fullnavn</th>
+                    <th>Email</th>
+                    <th>Adress</th>
+                    <th>Land</th>
+                    <th>Dato</th>
+                    <th>Handelse</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var observasjon in model){
+                    <tr>
+                        <td>@observasjon.fullnavn</td>
+                        <td>@observasjon.email</td>
+                        <td>@observasjon.adress</td>
+                        <td>@observasjon.land</td>
+                        <td>@observasjon.dato</td>
+                        <td>@observasjon.Beskrivelse</td>
+                        <td>
+                            <form asp-action="UpdateObservasjon" asp-controller="Home" method="post">
+                                <input type="hidden"  value="@observasjon.id" asp-for="id"/>
+                                <button type="submit" class="btn btn-sucess">Update</button>
+
+                            </form>
+                        </td>
+                        <td>
+                            <form asp-action="Delet" asp-controller="Home">
+                                
+                                <button type="submit" class="btn btn-danger">Delete</button>
+
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <div class="row">
+        <a href="Home/LeggBrukere" class="btn btn-primary" type="button">
+            <i class="fa fa-plus"></i>Legg Observasjon
+        </a>
+    </div>
+</div>
+</body>
+</html>
+

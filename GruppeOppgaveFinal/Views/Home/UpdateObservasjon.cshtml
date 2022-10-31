@@ -1,0 +1,36 @@
+﻿@model GruppeOppgaveFinal.Models.Observasjoner
+
+@{
+    ViewData["Title"] = "UpdateObservasjon";
+    Observasjoner observasjon = TempData["observasjonTemp"] as Observasjoner;
+
+}
+<form action="/Home/UpdateBrukereFinal" method="post">
+    <input type="hidden" value="@observasjon.id" />
+    <div class="form-group">
+        <label for="fullnavn">Fullnavn</label>
+        <input type="text" class="form-control" placeholder="Skriv inn Fullnavn" asp-for="fullnavn" value="@observasjon.fullnavn">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" placeholder="Email" asp-for="email" value="@observasjon.email">
+    </div>
+    <div class="form-group">
+        <label for="adress">Adress</label>
+        <input type="text" class="form-control" placeholder="Skriv inn Adresset" asp-for="adress" value="@observasjon.adress">
+    </div>
+    <div class="form-group">
+        <label for="land">Land</label>
+        <input type="text" class="form-control" placeholder="Skriv inn Landet" asp-for="land" value="@observasjon.land">
+    </div>
+    <div class="form-group">
+        <label for="dato">Dato</label>
+        <input type="text" class="form-control" placeholder="00/00/0000" asp-for="dato" value="@observasjon.dato">
+    </div>
+    <div class="mb-3">
+        <label for="Beskrivelse" class="form-label" value="@observasjon.Beskrivelse">Beskriv hendelsen</label>
+        <textarea class="form-control" rows="3" asp-for="Beskrivelse" ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
